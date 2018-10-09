@@ -1,0 +1,16 @@
+{
+    "name": "jovanela/quete_simple_mvc",
+    "description": "Quête MVC 2",
+    "authors": [
+        {
+            "name": "Jovanela Daribo",
+            "email": "carly972@live.fr"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}
