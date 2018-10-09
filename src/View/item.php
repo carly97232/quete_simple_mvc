@@ -2,7 +2,6 @@
 namespace View;
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head> MVC </head>
