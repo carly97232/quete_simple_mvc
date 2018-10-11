@@ -1,8 +1,6 @@
 <?php
 namespace Model;
 require __DIR__ . '/../../app/db.php';
-
-
 class ItemManager
 {
     public function selectAllItems(): array
@@ -12,7 +10,6 @@ class ItemManager
         $res = $pdo->query($query);
         return $res->fetchAll();
     }
-
     public function selectOneItem(int $id): array
     {
         $pdo = new \PDO(DSN, USER, PASS);
