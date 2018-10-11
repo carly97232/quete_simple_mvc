@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head> ... </head>
+<head> MVC 3</head>
 <body>
 <main>
     <h1>Category <?= $category['name'] ?></h1>
