@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="fr">
-<head>MVC3</head>
+<head>MVC 3</head>
 
 
 <!-- affichage des items récupérés par la requête SQL -->
@@ -9,7 +9,7 @@
     <h1>Categories</h1>
     <ul>
         <?php foreach ($categories as $category) : ?>
-            <li><?= $category['title'] ?></li>
+            <li><?= $category['name'] ?></li>
         <?php endforeach ?>
     </ul>
 </section>
