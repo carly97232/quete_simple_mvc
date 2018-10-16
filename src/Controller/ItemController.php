@@ -3,26 +3,23 @@ namespace Controller;
 use Model\ItemManager;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
+use App\Connection;
 
-class ItemController
+class ItemController extends AbstractController
 {
-    private $twig;
+    protected $twig;
 
-    public function __construct()
-    {
-        $loader = new Twig_Loader_Filesystem(__DIR__.'/../View');
-        $this->twig = new Twig_Environment($loader);
-    }
     public function index()
     {
-        $itemManager = new ItemManager();
-        $items = $itemManager->selectAllItems();
-        return $this->twig->render('item.html.twig', ['items' => $items]);
+        $itemManager = new ItemManager($this->pdo);
+        $items = $itemManager->selectAll();
+        return $this->twig->render('Item/item.html.twig', ['items' => $items]);
     }
     public function show(int $id)
     {
-        $itemManager = new ItemManager();
-        $item = $itemManager->selectOneItem($id);
-        return $this->twig->render('showItem.html.twig', ['item' => $item]);
+        $itemManager = new ItemManager($this->pdo);
+        $item = $itemManager->selectOneById($id);
+        return $this->twig->render('Item/showItem.html.twig', ['item' => $item]);
     }
+
 }
