@@ -1,14 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jovanela
- * Date: 16/10/18
- * Time: 16:04
- */
+
 
 namespace Model;
-
 use App\Connection;
+
 
 abstract class AbstractManager
 {

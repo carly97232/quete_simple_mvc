@@ -1,10 +1,12 @@
 <?php
+
+
 namespace Model;
 use App\Connection;
 
+
 class CategoryManager extends AbstractManager
 {
-
     const TABLE = 'category';
 
     public function __construct(\PDO $pdo)
@@ -21,4 +23,3 @@ class CategoryManager extends AbstractManager
         }
     }
 }
-

@@ -1,9 +1,12 @@
 <?php
+
+
 namespace Controller;
 use Model\CategoryManager;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 use Model\Category;
+
 
 class CategoryController extends AbstractController
 {
@@ -15,6 +18,7 @@ class CategoryController extends AbstractController
         $categories = $categoryManager->selectAll();
         return $this->twig->render('Category/category.html.twig', ['categories' => $categories]);
     }
+
     public function show(int $id)
     {
         $categoryManager = new CategoryManager($this->pdo);

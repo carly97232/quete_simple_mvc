@@ -1,16 +1,12 @@
 <?php
-
 namespace Controller;
-
 use Twig_Loader_Filesystem;
 use Twig_Environment;
 use App\Connection;
-
 abstract class AbstractController
 {
     protected $twig;
     protected $pdo;
-
     public function __construct()
     {
         // instanciation de Twig
@@ -21,12 +17,10 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new \Twig_Extension_Debug());
-
         // instanciation de la connexion à la BDD
         $connection = new Connection();
         $this->pdo = $connection->getPdoConnection();
     }
-
     /**
      * @return Twig_Environment
      */
@@ -34,7 +28,6 @@ abstract class AbstractController
     {
         return $this->twig;
     }
-
     /**
      * @param Twig_Environment $twig
      */
@@ -42,7 +35,6 @@ abstract class AbstractController
     {
         $this->twig = $twig;
     }
-
     /**
      * @return \PDO
      */
@@ -50,7 +42,6 @@ abstract class AbstractController
     {
         return $this->pdo;
     }
-
     /**
      * @param \PDO $pdo
      */
@@ -58,5 +49,4 @@ abstract class AbstractController
     {
         $this->pdo = $pdo;
     }
-
 }
