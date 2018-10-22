@@ -60,7 +60,7 @@ class ItemController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = [];
             if (empty($_POST['title'])) {
-                $errors[] = "le titre est obligatoire";
+                $errors[] = "Veuillez renseigner le titre";
             }else{
                 $item->setTitle($_POST['title']);
                 $itemManager->update($item);
@@ -74,7 +74,7 @@ class ItemController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = [];
             if (empty($_POST['title'])) {
-                $errors[] = "le titre est obligatoire";
+                $errors[] = "Veuillez renseigner le titre";
             } else {
                 $itemManager = new ItemManager($this->getPdo());
                 $item = new Item();
