@@ -58,27 +58,30 @@ class ItemController extends AbstractController
         $itemManager = new ItemManager($this->getPdo());
         $item = $itemManager->selectOneById($id);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $item->setTitle($_POST['title']);
-            $itemManager->update($item);
+            $errors = [];
+            if (empty($_POST['title'])) {
+                $errors[] = "le titre est obligatoire";
+            }else{
+                $item->setTitle($_POST['title']);
+                $itemManager->update($item);
+            }
         }
         return $this->twig->render('Item/edit.html.twig', ['item' => $item]);
     }
-    /**
-     * Display item creation page
-     *
-     * @return string
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
-     */
+
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $itemManager = new ItemManager($this->getPdo());
-            $item = new Item();
-            $item->setTitle($_POST['title']);
-            $id = $itemManager->insert($item);
-            header('Location:/');
+            $errors = [];
+            if (empty($_POST['title'])) {
+                $errors[] = "le titre est obligatoire";
+            } else {
+                $itemManager = new ItemManager($this->getPdo());
+                $item = new Item();
+                $item->setTitle($_POST['title']);
+                $id = $itemManager->insert($item);
+                header('Location:/item/' . $id);
+            }
         }
         return $this->twig->render('Item/add.html.twig');
     }
